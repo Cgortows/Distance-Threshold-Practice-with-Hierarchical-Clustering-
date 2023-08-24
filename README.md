@@ -1,10 +1,9 @@
 # Distance Threshold Practice with Hierarchical Clustering 
 
-## Introduction
 While I was looking into learning more about Customer Segmentation. I discovered that the random datasets I could find on the internet were not that great for visualizng clusters the way I wanted to. I decided to try working with synthetic data and it drove me to a better understanding of clustering, especially Hierarchical Clustersing. In order to visualize the datasets I will be using principal component analysis or PCA. I will use two components to keep it in two dimensions.
 
 ## Synthetic Datasets
-We will start with the default perameters of the make_classification method from sklearn.datasets. The resulting dataset is not too impressive so we will make to make some adjustments. 
+We will start with the default perameters of the make_classification method from sklearn.datasets. The resulting dataset is not too impressive so we will have to make some adjustments. 
 ```
 import numpy as np
 import pandas as pd
@@ -32,7 +31,8 @@ df_pca_complex = pd.DataFrame(pca_transformed_complex, columns=['PC1', 'PC2'])
 Z_pca_complex = linkage(df_pca_complex)
 
 # Using a distance threshold to define the clusters
-clusters = fcluster(Z_pca_complex, 0.6, criterion='distance')
+distance_threshold = 50
+clusters = fcluster(Z_pca_complex, distance_threshold, criterion='distance')
 
 # Scatter plot of the hierarchical clustering results with discrete colormap
 plt.figure(figsize=(8, 6))
@@ -46,7 +46,18 @@ plt.savefig('my_plot.png')
 plt.show()
 ```
 
-![Default settings]()
+![Default settings](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/default_make_classification_settings.png)
 
+Since most datasets will have far more than 100 samples, we should increse the n_samples perameter from 100 to 1000 to get a more realistic dataset.
 
+![1000_n_samples](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/1000_samples.png)
+
+  With the larger dataset, the n_clusters_per_class and n_classes perameters become more apparent. The graph shows four or five relativly distinct clusters. This is where it comes down to how you choose to view your data. With the set perameters, n_clusters_per_class = 2 and n_classes = 2, we should have four clusters. But as we can see it could be four or it could be five. 
+To better view the clusters lets try using the distance threshold perameter in the fcluster method. 
+
+  First lets add method='ward' to the linkage function we were using. This perameter determines how the linkage distances between clusters are calculated during the process of merging clusters. Different linkage methods lead to different structures of hierarchical clusters. In the context of hierarchical clustering, a "linkage distance" is a measure of dissimilarity between two clusters. When combining clusters into larger ones, the linkage distance between them is used to determine how similar or dissimilar they are.
+
+  Ward's linkage aims to minimize the increase in the sum of squared distances after merging two clusters. It's a variance minimization approach that often leads to compact and spherical clusters. Ward linkage is the default method in many hierarchical clustering implementations.
+
+## Distance Threshold
 
