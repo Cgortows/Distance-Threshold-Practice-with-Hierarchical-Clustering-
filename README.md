@@ -60,7 +60,9 @@ Ward's linkage aims to minimize the increase in the sum of squared distances aft
 
 ## Distance Threshold
 
+The distance threshold is a value that you specify to control the granularity of clustering. It defines a threshold for the linkage distances between clusters, below which clusters will be merged together. Any two clusters with a linkage distance lower than the specified threshold are merged into a single cluster.
 I have the distance threshold set at 100 currently. This high of a threshold with only 1000 points doesnt give us any clusters. To get to the specific amount of clusters we want, which is four or five, we can take a look at the dendogram. 
+A dendrogram is a diagrammatic representation used to visualize the arrangement of data points or clusters in a hierarchical structure. It looks like an upside-down tree and is commonly used to show the process of how clusters are formed and merged as part of the hierarchical clustering algorithm.
 
 ```
 # Create a dendrogram
@@ -74,9 +76,49 @@ plt.show()
 
 ![Dendogram](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/dendogram.png)
 
+With a color_threshold set to one-hundred on the dendogram, we have to eyeball the clusters ourselves.
+
+![Dendogram](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/dendogram_2.png)
+
 The y-axis will give us the linkage distance between clusters. This will help us determine the correct distance threshold based on how many clusters we want. Remember the dendogram doesnt decide how many clusters there should be. It only lays them out so we can better decide for oursleves.
-Looking at the dendogram we can see that five clusters makes a lot more sense than four. If look at there the vertical lines for each cluster cross, the distance threshold we want should be around twenty or thirty.
-Setting  the distance threshold to twenty we get our five clusters.
+Looking at the dendogram we can see that five clusters makes a lot more sense than four. To find the distance threshold we want, we can draw a horizontal line through the graph where it will hit the vertical lines coming up from all the clusters we ant isolated. We can see that the threshold is around 20.
+Changing the color_threshold on the dendogram will better show us the clusters.
+
+![Dendogram](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/Dendogram_2.png)
 
 ![Distance Threshold of 20](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/ds_20.png)
 
+Now we chose five clusters because it _looks_ like it fits the data best. This might not be what we want in real world data. Two of the five clusters could share an attribute that is more imporant that what is splitting them apart. Or maybe each five clusters has an underlying attribute that can show itself as the outliers of the clusters.
+A distance threshold of thirty-five will make two of the clusters merge. 
+
+![Distance Threshold of 35](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/ds_35.png)
+
+Lowering the distance threshold is when we start to get more defined clusters. 
+
+![Distance Threshold of 12](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/ds_12.png)
+
+With synthetic data sets we can work on a number of different types of clustering problems. By changing the n_clusters_per_class and n_classes perameters we can get a wide range of clusters
+When changing those perameters be aware that their product must be less than or equal to two times the n_informative perameter or else the function wont run.
+The sum of the n_informative and the n_redundant perameters must be less than the n_features perameter.
+For these examples the n_informative and n_redundant perameters will be set to five.
+
+![Two Clusters Four CLasses](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/2_clusters_per_4_classes.png)
+
+This set has two clusters per four classes.
+
+![Three Clusters Four Classes](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/3_clusters_per_4_classes.png)
+
+This set has three clusters per four classes.
+Changing the redundant versus the informative features also has an affect on the dataset. These examples will have two clusters per two classes.
+
+![Two Informative Five Redundant](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/2_informative_5_redudnat.png)
+
+This set has two informative features and five redundant features.
+
+![Two Informative Eight Redundant](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/2_informative_8_redundant.png)
+
+This set has two informative features and eight redundant featres.
+
+![Five Informative Five Redundant](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/5_informative_5_redundant.png)
+
+This set has five informative features and five redundant features.
