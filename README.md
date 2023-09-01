@@ -118,25 +118,16 @@ For the examples presented here, the `n_informative` and `n_redundant` parameter
 
 ![Two Clusters Four CLasses](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/2_clusters_per_4_classes.png)
 
-This set has two clusters per four classes.
-
 ![Three Clusters Four Classes](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/3_clusters_per_4_classes.png)
 
-This set has three clusters per four classes.
 Manipulating the balance between redundant and informative features also exerts a significant influence on the resulting dataset. By altering the proportion of these features, we can further tailor the characteristics of the dataset to our needs. In the cases presented, the configuration will involve two clusters within each of the two classes.
 
 The interplay between redundant and informative features plays a pivotal role in shaping the data's structure. Redundant features might contribute to increased complexity, while informative features enhance the discriminative power of the dataset. This delicate equilibrium between the two types of features allows us to fine-tune the clustering outcomes to match the inherent properties of the data.
 
 ![Two Informative Five Redundant](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/2_informative_5_redudnat.png)
 
-This set has two informative features and five redundant features.
-
 ![Two Informative Eight Redundant](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/2_informative_8_redundant.png)
-
-This set has two informative features and eight redundant featres.
 
 ![Five Informative Five Redundant](https://github.com/Cgortows/Distance-Threshold-Practice-with-Hierarchical-Clustering-/blob/main/Images/5_informative_5_redundant.png)
 
-This set has five informative features and five redundant features.
-
-In conclusion, this exploration into Customer Segmentation using synthetic datasets and hierarchical clustering has provided valuable insights into the intricate world of cluster analysis. By meticulously adjusting parameters, scrutinizing dendrograms, and discerning the interplay between features, we've uncovered how each facet shapes the clustering outcomes. Through the lens of synthetic data, we've not only deepened our understanding of clustering algorithms but also honed the art of data interpretation. This project underscores the importance of striking a balance between algorithmic sophistication and insightful domain knowledge to uncover hidden patterns within complex datasets. As we journey further into the realm of data analysis, the lessons gleaned from this project will undoubtedly serve as a compass, guiding us through the nuanced terrain of clustering and paving the way for more informed decision-making in real-world scenarios
+Even though working with synthetic data can be very fruitful. Working with real world data sets is still very important. After all, the skills and insights that can be pulled from this project are meant to help with working on real world data. Though after discovering how easy it is to make workable data sets, I'm not looking forward to searching for messy datasets to train on.
