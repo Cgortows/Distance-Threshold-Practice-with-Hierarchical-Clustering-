@@ -1,4 +1,4 @@
-# Distance Threshold Practice with Hierarchical Clustering 
+# Understanding Clustering through Synthetic Data Analysis
 
 While I was exploring Customer Segmentation , I realized that the random datasets available on the internet weren't ideal for visualizing clusters the way I intended. Consequently, I chose to experiment with synthetic data, which led me to a deeper comprehension of clustering, particularly Hierarchical Clustering. To effectively visualize the datasets, I will employ Principal Component Analysis (PCA).
 
